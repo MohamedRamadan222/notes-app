@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_notes_app/cubits/notes_cubit/notes_cubit.dart';
-import 'package:my_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:my_notes_app/models/note_model.dart';
 import 'custom_note_item.dart';
 
@@ -20,9 +19,11 @@ class NotesListView extends StatelessWidget {
               itemCount: notes.length,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5),
-                  child: NoteItem(),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: NoteItem(
+                    note: notes[index],
+                  ),
                 );
               }),
         );
